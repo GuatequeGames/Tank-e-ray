@@ -14,9 +14,11 @@ public class MovementPlayer : MonoBehaviour
     public int speed;
     public int speedRotation;
 
+    AudioSource engine;
+
     void Start()
     {
-        
+        engine = GetComponents<AudioSource>()[4];
     }
 
     // Update is called once per frame
@@ -30,7 +32,10 @@ public class MovementPlayer : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
-        
+        if (h > 0 || v > 0) engine.volume = 1;
+        else engine.volume = 0.5f;
+
+
         transform.Translate(Vector3.forward * v * speed * Time.deltaTime);
         transform.Rotate(Vector3.up * h * speedRotation * Time.deltaTime);
 

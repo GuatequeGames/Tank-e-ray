@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class Atack : MonoBehaviour
 {
     [Header("Atack")]
+    public GameObject bombAim;
     public GameObject bombPrefab;
     public GameObject bulletPrefab;
     public Transform shooterTransform;
@@ -18,20 +19,25 @@ public class Atack : MonoBehaviour
     [Header("AutoFire")]
     public bool autoFire;
     public float autoFireRate;
+   
 
     [Header("Bombs")]
-    public int maxBombs;
-    int nBombs;
+    public float bombAimRate;
+    public bool aimBomb;
+    public UIPlayer playerInterface;
 
-    [Header("Interface Elements")]
-    public Image reloadImage;
 
+    AudioSource autoFireSound, bombSound, bombReload; //Sound Effects Variables
     float timer;
+    float timerBombAim;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        autoFireSound = gameObject.GetComponents<AudioSource>()[0];
+        bombSound = gameObject.GetComponents<AudioSource>()[1];
+        bombReload = gameObject.GetComponents<AudioSource>()[2];
         
     }
 
@@ -41,6 +47,7 @@ public class Atack : MonoBehaviour
 
         AutoFire();
         ShootBomb();
+        ReloadBombs();
 
 
     }
@@ -51,6 +58,7 @@ public class Atack : MonoBehaviour
         if (autoFire && timer >= autoFireRate)
         {
             Instantiate(bulletPrefab, shooterTransform.position, shooterTransform.rotation);
+            autoFireSound.Play();
             timer = 0;
         }
         if (Input.GetKeyDown(KeyCode.Space))
@@ -61,15 +69,42 @@ public class Atack : MonoBehaviour
 
     void ShootBomb()
     {
+        AimBomb();
+       
+        
         if (Input.GetMouseButtonDown(0))
         {
-            if (nBombs == 0)
+            if (playerInterface.currentBombs != 0)
             {
-
-                return;
+                Instantiate(bombPrefab, shooterTransform.position, shooterTransform.rotation);
+                bombSound.Play();
+                playerInterface.currentBombs--;
+                playerInterface.UpdateNumberOfBombs();
             }
         }
-        if (nBombs == 0) return;
         
+    }
+    void ReloadBombs()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (playerInterface.currentBombs < playerInterface.capacityBombs)
+            {
+               
+                playerInterface.currentBombs= playerInterface.capacityBombs;
+                bombReload.PlayDelayed(0.5f);
+                playerInterface.ReloadBombs();
+            }
+        }
+    }
+
+    void AimBomb()
+    {
+        timerBombAim += Time.deltaTime;
+        if (aimBomb && timerBombAim >= bombAimRate)
+        {
+            Instantiate(bombAim, shooterTransform.position, shooterTransform.rotation, shooterTransform);
+            timerBombAim = 0;
+        }
     }
 }
