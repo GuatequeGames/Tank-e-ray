@@ -32,7 +32,7 @@ public class MovementPlayer : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
-        if (h > 0 || v > 0) engine.volume = 1;
+        if (h != 0 || v != 0) engine.volume = 1;
         else engine.volume = 0.5f;
 
 

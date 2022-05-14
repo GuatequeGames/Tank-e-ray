@@ -23,6 +23,7 @@ public class UIPlayer : MonoBehaviour
 
 
     AudioSource powerUp;
+    AudioSource HitReceived;
 
 
     void Start()
@@ -30,6 +31,7 @@ public class UIPlayer : MonoBehaviour
         bulletsImage.fillAmount = (float) currentBombs / maxBombs;
         backgrounBullets.fillAmount = (float) capacityBombs / maxBombs;
         powerUp = GetComponents<AudioSource>()[3];
+        HitReceived = gameObject.GetComponents<AudioSource>()[5];
     }
 
     // Update is called once per frame
@@ -79,6 +81,24 @@ public class UIPlayer : MonoBehaviour
             }
             Destroy(other.gameObject);
         }
+
+        if (other.CompareTag("EnemyBomb"))
+        {
+
+            currentHealth -= damageBullet;
+            healthBar.fillAmount = currentHealth / maxHealth;
+            HitReceived.Play();
+            Destroy(other.gameObject);
+            if(currentHealth <= 0)
+            {
+                GameOver();
+            }
+        }
+    }
+
+    public void GameOver()
+    {
+
     }
 
 }

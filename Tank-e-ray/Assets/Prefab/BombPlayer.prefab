@@ -93,7 +93,7 @@ SphereCollider:
   m_GameObject: {fileID: 3634502373014545550}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 4009139392262948898}
   - component: {fileID: 8113918882287952311}
   - component: {fileID: 6271877344069323796}
+  - component: {fileID: 8116904233349689183}
   m_Layer: 0
   m_Name: BombPlayer
   m_TagString: Untagged
@@ -123,7 +124,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4675872180328819577}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.26086247, y: 7.582004, z: 5.15}
+  m_LocalPosition: {x: -0.218, y: 7.582004, z: 5.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -144,7 +145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e86301a5cf8db48b5d6059bdd470bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
   force: 500
 --- !u!54 &6271877344069323796
 Rigidbody:
@@ -162,6 +162,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &8116904233349689183
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4675872180328819577}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.57, y: 0.6, z: 1.3}
+  m_Center: {x: 0.0780752, y: -0.43771935, z: 0.12}
 --- !u!1 &5951697401080901321
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +268,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 5951697401080901321}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1

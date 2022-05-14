@@ -117,6 +117,7 @@
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/DOTween/DOTween.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.0f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.0f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.0f1/Editor/Data/Managed/UnityEngine/UnityEditor.DiagnosticsModule.dll"
@@ -320,8 +321,11 @@
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.0f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XPath.XDocument.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.0f1/Editor/Data/NetStandard/Extensions/2.0.0/System.Runtime.InteropServices.WindowsRuntime.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.0f1/Editor/Data/NetStandard/ref/2.1.0/netstandard.dll"
+-r:"C:/Users/maste/Documents/GIT/GuatequeGames/Tank-e-ray/Tank-e-ray/Tank-e-ray/Library/PackageCache/com.unity.cinemachine@2.8.4/Runtime/ThirdParty/clipper_library.dll"
 -r:"C:/Users/maste/Documents/GIT/GuatequeGames/Tank-e-ray/Tank-e-ray/Tank-e-ray/Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/lib/ReportGenerator/ReportGeneratorMerged.dll"
 -r:"C:/Users/maste/Documents/GIT/GuatequeGames/Tank-e-ray/Tank-e-ray/Tank-e-ray/Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Cinemachine.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/com.unity.cinemachine.editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.EditorCoroutines.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Performance.Profile-Analyzer.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
@@ -345,7 +349,23 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/DOTween/Modules/DOTweenModuleAudio.cs"
+"Assets/DOTween/Modules/DOTweenModuleEPOOutline.cs"
+"Assets/DOTween/Modules/DOTweenModulePhysics.cs"
+"Assets/DOTween/Modules/DOTweenModulePhysics2D.cs"
+"Assets/DOTween/Modules/DOTweenModuleSprite.cs"
+"Assets/DOTween/Modules/DOTweenModuleUI.cs"
+"Assets/DOTween/Modules/DOTweenModuleUnityVersion.cs"
+"Assets/DOTween/Modules/DOTweenModuleUtils.cs"
+"Assets/Scripts/Bullets/Bomb.cs"
+"Assets/Scripts/Bullets/Bullet.cs"
+"Assets/Scripts/Camera/FollowPlayer.cs"
+"Assets/Scripts/Enemies/EnemyManager.cs"
+"Assets/Scripts/Enemies/FollowTarget.cs"
+"Assets/Scripts/Player/Atack.cs"
 "Assets/Scripts/Player/MovementPlayer.cs"
+"Assets/Scripts/Player/UIPlayer.cs"
+"Assets/Scripts/UI/ShakeImage.cs"
 -langversion:9.0
 
 /deterministic
