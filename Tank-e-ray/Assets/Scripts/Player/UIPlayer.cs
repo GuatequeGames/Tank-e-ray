@@ -10,6 +10,7 @@ public class UIPlayer : MonoBehaviour
     public Image bulletsImage;
     public Image healthBar;
     public Image reloadWarning;
+    public GameManager gameManager;
 
     [Header("Life Parameters")]
     public float maxHealth;//salud máxima del player
@@ -93,6 +94,11 @@ public class UIPlayer : MonoBehaviour
             {
                 GameOver();
             }
+        }
+
+        if(currentHealth <= 0)
+        {
+            gameManager.GameOver();
         }
     }
 

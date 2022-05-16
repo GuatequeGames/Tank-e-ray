@@ -57,8 +57,9 @@ public class FollowTarget : MonoBehaviour
         if (Physics.Raycast(ray, out hit, distanceToDetect, layerWalls)) return; //If the player is behind a wall, the enemy don't move
         if (Physics.Raycast(ray, out hit, distanceToDetect, layerTanks))
         {
+            //Debug.Log("Distance to player: " + hit.distance);
             //We set the translation of the enemy in order to get closer to the player
-            if (hit.distance > distanceToShoot + 0.5)
+            if (hit.distance > distanceToShoot)
             {
                 transform.Translate((Target.transform.position - transform.position).normalized * speed * Time.deltaTime);
             }
@@ -66,27 +67,23 @@ public class FollowTarget : MonoBehaviour
             {
                 transform.Translate((Target.transform.position - transform.position).normalized * -speed * Time.deltaTime);
             }
-
+            
             // We set the rotation of the enemy in order to aim to the player
             float angleBetween = Vector3.SignedAngle(new Vector3(rayForward.direction.x, 0, rayForward.direction.z), new Vector3(ray.direction.x, 0, ray.direction.z), Vector3.up);
-            Debug.Log("Angulo al player: " + angleBetween);
             if (angleBetween != 0)
             {
-                Debug.Log("Necesario alinear");
                 if (angleBetween < 0)
                 {
-                    Debug.Log("Rotando por los cojones");
                     transform.Rotate(Vector3.up * -turnSpeed * Time.deltaTime);
 
                 }
                 else if (angleBetween > 0)
                 {
-                    Debug.Log("Rotando por los cojones");
 
                     transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime);
                 }
             }
-            else
+            else  if(hit.distance > distanceToShoot -0.5f && hit.distance < distanceToShoot+0.5f)
             {
                 ShootToPlayer();
             }
